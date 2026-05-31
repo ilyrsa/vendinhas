@@ -23,6 +23,7 @@ public class VendaService {
     public VendaDTO salvarOuAtualizar(VendaDTO dto) {
         Venda venda;
 
+        // Regra de Negócio: Se o ID for nulo, cria uma nova venda; caso contrário, atualiza a venda existente
         if (dto.id() != null) {
             venda = repository.findById(dto.id())
                     .orElseThrow(() -> new RuntimeException("Venda não encontrada com o ID informado."));
