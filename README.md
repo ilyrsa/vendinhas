@@ -19,7 +19,7 @@ Antes de executar, certifique-se de ter instalado em sua máquina:
 
 1. **Clone o repositório ou extraia o projeto:**
    ```bash
-   git clone <link-do-seu-repositorio>
+   git clone <https://github.com/ilyrsa/vendinhas.git>
    cd vendinhas
    ```
 
