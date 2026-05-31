@@ -2,20 +2,42 @@ package com.vendinhas.vendas_api.model;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
 @Table(name = "item_venda")
+@EntityListeners(AuditingEntityListener.class)
 public class ItemVenda {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     private Long produtoId;
     private String descricaoProduto;
     private Integer quantidade;
     private BigDecimal valorUnitario;
     private BigDecimal valorTotal;
+
+    @CreatedDate
+    @Column(updatable = false)
+    private LocalDateTime criadoEm;
+
+    @LastModifiedDate
+    private LocalDateTime atualizadoEm;
+
+    @CreatedBy
+    @Column(updatable = false)
+    private String criadoPor;
+
+    @LastModifiedBy
+    private String atualizadoPor;
 
     @ManyToOne
     @JoinColumn(name = "venda_id")
@@ -77,5 +99,36 @@ public class ItemVenda {
         this.venda = venda;
     }
 
+    public LocalDateTime getCriadoEm() {
+        return criadoEm;
+    }
+
+    public void setCriadoEm(LocalDateTime criadoEm) {
+        this.criadoEm = criadoEm;
+    }
+
+    public LocalDateTime getAtualizadoEm() {
+        return atualizadoEm;
+    }
+
+    public void setAtualizadoEm(LocalDateTime atualizadoEm) {
+        this.atualizadoEm = atualizadoEm;
+    }
+
+    public String getCriadoPor() {
+        return criadoPor;
+    }
+
+    public void setCriadoPor(String criadoPor) {
+        this.criadoPor = criadoPor;
+    }
+
+    public String getAtualizadoPor() {
+        return atualizadoPor;
+    }
+
+    public void setAtualizadoPor(String atualizadoPor) {
+        this.atualizadoPor = atualizadoPor;
+    }
 
 }
