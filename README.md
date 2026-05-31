@@ -1,6 +1,6 @@
 # Vendas API - Desafio Técnico
 
-API REST desenvolvida em Java com Spring Boot para gerenciamento de vendas e itens de vendas. Este projeto foi desenvolvido como resolução de desafio técnico para vaga de estágio.
+API REST desenvolvida em Java com Spring Boot para gerenciamento de vendas e itens de vendas. Este projeto foi inicialmente desenvolvido como resolução de um desafio técnico.
 
 ## Tecnologias Utilizadas
 
